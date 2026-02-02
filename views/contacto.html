@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Contacta con nosotros y calcula una ruta hasta nuestra ubicación." />
+    <title>ProgramStile Studio | Contacto</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <!-- Leaflet (OpenStreetMap) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+
+    <!-- Leaflet Routing Machine (OSRM) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Ir a inicio">
+          <img src="../images/logo.svg" alt="Logo ProgramStile" width="36" height="36" />
+          <span>ProgramStile Studio</span>
+        </a>
+
+        <nav class="nav" aria-label="Navegación principal">
+          <a href="index.html">Inicio</a>
+          <a href="productos.html">Productos</a>
+          <a href="presupuesto.html">Presupuesto</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido" class="section" data-contact-page>
+      <div class="container">
+        <h1 style="margin-top:0">Contacto</h1>
+        <div class="grid-2">
+          <div class="card">
+            <h2 style="margin-top:0">Datos de contacto</h2>
+            <p class="small">
+              <strong>ProgramStile Studio</strong><br />
+              Calle Ficticia 123<br />
+              Madrid, España<br />
+              Tel: 600 123 456<br />
+              Email: contacto@programstile.example
+            </p>
+
+            <h3>Ruta hasta nosotros</h3>
+            <p class="help" data-map-status aria-live="polite"></p>
+
+            <div class="inline">
+              <button class="button primary" type="button" data-use-geo>Calcular ruta desde mi ubicación</button>
+            </div>
+
+            <p class="help">Si prefieres no usar geolocalización, introduce coordenadas:</p>
+            <div class="grid-2">
+              <div class="field">
+                <label for="originLat">Latitud</label>
+                <input id="originLat" type="number" step="0.000001" placeholder="40.4168" />
+              </div>
+              <div class="field">
+                <label for="originLng">Longitud</label>
+                <input id="originLng" type="number" step="0.000001" placeholder="-3.7038" />
+              </div>
+            </div>
+            <button class="button" type="button" data-route-manual>Calcular ruta con coordenadas</button>
+            <noscript>
+              <p class="error">Activa JavaScript para ver el mapa y la ruta.</p>
+            </noscript>
+          </div>
+
+          <div>
+            <div id="map" class="map" aria-label="Mapa"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>ProgramStile Studio</strong>
+          <div class="small">Calle Ficticia 123, Madrid</div>
+          <div class="small">&copy; <span data-year></span></div>
+        </div>
+        <div class="social" aria-label="Redes sociales">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="X">X</a>
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module">
+      import { setupCommon } from '../js/common.js';
+      import { setupContactMap } from '../js/contact.js';
+
+      setupCommon();
+
+      // Espera a que Leaflet (defer) cargue antes de inicializar.
+      window.addEventListener('load', () => setupContactMap());
+    </script>
+  </body>
+</html>

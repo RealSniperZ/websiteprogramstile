@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Galería de trabajos y ejemplos." />
+    <title>ProgramStile Studio | Productos</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Ir a inicio">
+          <img src="../images/logo.svg" alt="Logo ProgramStile" width="36" height="36" />
+          <span>ProgramStile Studio</span>
+        </a>
+
+        <nav class="nav" aria-label="Navegación principal">
+          <a href="index.html">Inicio</a>
+          <a href="productos.html">Productos</a>
+          <a href="presupuesto.html">Presupuesto</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido" class="section">
+      <div class="container">
+        <h1 style="margin-top:0">Productos</h1>
+        <p class="help">Una muestra de estilos y componentes. Abre un elemento con click o teclado.</p>
+        <noscript>
+          <p class="error">Activa JavaScript para ver la galería.</p>
+        </noscript>
+        <div class="gallery-grid" data-gallery></div>
+      </div>
+
+      <div class="modal" data-modal role="dialog" aria-modal="true" aria-label="Vista ampliada">
+        <div class="modal-dialog">
+          <div class="modal-header">
+            <strong data-modal-title>Imagen</strong>
+            <button class="button" type="button" data-modal-close>Cerrar</button>
+          </div>
+          <div class="modal-body">
+            <img src="../images/gallery-1.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>ProgramStile Studio</strong>
+          <div class="small">Calle Ficticia 123, Madrid</div>
+          <div class="small">&copy; <span data-year></span></div>
+        </div>
+        <div class="social" aria-label="Redes sociales">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="X">X</a>
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module">
+      import { setupCommon } from '../js/common.js';
+      import { setupGallery } from '../js/gallery.js';
+      setupCommon();
+      setupGallery();
+    </script>
+  </body>
+</html>

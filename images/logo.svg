@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Logo ProgramStile">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6aa6ff" />
+      <stop offset="1" stop-color="#7cf7c2" />
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#g)" />
+  <path d="M20 40c0-10 8-18 18-18h4v6h-4c-6 0-10 4-10 12v2H20v-2z" fill="#071226" opacity="0.95"/>
+  <circle cx="44" cy="42" r="6" fill="#071226" opacity="0.95"/>
+</svg>

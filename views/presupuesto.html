@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Solicita un presupuesto con validaciones y cálculo en tiempo real." />
+    <title>ProgramStile Studio | Presupuesto</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Ir a inicio">
+          <img src="../images/logo.svg" alt="Logo ProgramStile" width="36" height="36" />
+          <span>ProgramStile Studio</span>
+        </a>
+
+        <nav class="nav" aria-label="Navegación principal">
+          <a href="index.html">Inicio</a>
+          <a href="productos.html">Productos</a>
+          <a href="presupuesto.html">Presupuesto</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido" class="section">
+      <div class="container">
+        <h1 style="margin-top:0">Presupuesto</h1>
+        <p class="help">Calcula un estimado en tiempo real y envíanos tus datos para contactarte.</p>
+
+        <form class="form" data-budget-form novalidate>
+          <fieldset>
+            <legend>Datos de contacto</legend>
+
+            <div class="grid-2">
+              <div class="field">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" name="nombre" type="text" autocomplete="given-name" maxlength="15" required />
+                <div class="error" data-error-for="nombre" aria-live="polite"></div>
+              </div>
+
+              <div class="field">
+                <label for="apellidos">Apellidos</label>
+                <input id="apellidos" name="apellidos" type="text" autocomplete="family-name" maxlength="40" required />
+                <div class="error" data-error-for="apellidos" aria-live="polite"></div>
+              </div>
+
+              <div class="field">
+                <label for="telefono">Teléfono de contacto</label>
+                <input id="telefono" name="telefono" type="tel" inputmode="numeric" autocomplete="tel" required />
+                <div class="error" data-error-for="telefono" aria-live="polite"></div>
+              </div>
+
+              <div class="field">
+                <label for="email">Correo electrónico</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+                <div class="error" data-error-for="email" aria-live="polite"></div>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Presupuesto</legend>
+
+            <div class="grid-2">
+              <div>
+                <div class="field">
+                  <label for="producto">Producto</label>
+                  <select id="producto" name="producto" required>
+                    <option value="900">Landing page (900€)</option>
+                    <option value="1600">Web corporativa (1600€)</option>
+                    <option value="2600">E-commerce (2600€)</option>
+                  </select>
+                  <div class="help">Elige un mínimo de 3 opciones (incluidas).</div>
+                </div>
+
+                <div class="field">
+                  <label for="plazo">Plazo (meses)</label>
+                  <input id="plazo" name="plazo" type="number" min="1" max="36" value="3" required />
+                  <div class="help">El plazo influye en el descuento final.</div>
+                </div>
+
+                <div class="field">
+                  <div class="inline" role="group" aria-label="Extras">
+                    <label>
+                      <input type="checkbox" name="extra" value="120" /> SEO básico (+120€)
+                    </label>
+                    <label>
+                      <input type="checkbox" name="extra" value="250" /> Copywriting (+250€)
+                    </label>
+                    <label>
+                      <input type="checkbox" name="extra" value="180" /> Analítica (+180€)
+                    </label>
+                    <label>
+                      <input type="checkbox" name="extra" value="300" /> Mantenimiento (+300€)
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="kpi" aria-label="Desglose">
+                  <div>
+                    <div class="label">Subtotal</div>
+                    <div class="value" data-out="subtotal">—</div>
+                  </div>
+                  <div>
+                    <div class="label">Descuento</div>
+                    <div class="value" data-out="discount">—</div>
+                  </div>
+                  <div>
+                    <div class="label">Total</div>
+                    <div class="value">
+                      <input id="presupuestoFinal" name="presupuestoFinal" type="text" readonly aria-label="Presupuesto final" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field" style="margin-top:1rem;">
+                    <label>
+                      <input id="terms" type="checkbox" /> Acepto la política de privacidad
+                    </label>
+                  <div class="error" data-error-for="terms" aria-live="polite"></div>
+                </div>
+
+                <div class="inline">
+                  <button class="button primary" type="submit">Enviar solicitud</button>
+                  <button class="button" type="button" data-reset>Limpiar</button>
+                </div>
+
+                <p class="error" data-submit-error aria-live="polite"></p>
+                <p class="small" style="color: var(--ok);" data-submit-ok aria-live="polite"></p>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>ProgramStile Studio</strong>
+          <div class="small">Calle Ficticia 123, Madrid</div>
+          <div class="small">&copy; <span data-year></span></div>
+        </div>
+        <div class="social" aria-label="Redes sociales">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Twitter">X</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module">
+      import { setupCommon } from '../js/common.js';
+      import { setupBudgetForm } from '../js/budget.js';
+      setupCommon();
+      setupBudgetForm();
+    </script>
+  </body>
+</html>
