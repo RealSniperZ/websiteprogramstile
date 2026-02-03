@@ -1,18 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Contacta con nosotros y calcula una ruta hasta nuestra ubicación." />
-    <title>ProgramStile Studio | Contacto</title>
-    <link rel="stylesheet" href="css/styles.css" />
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Contacta con nosotros y calcula una ruta hasta nuestra ubicación.">
+    <title> ProgramStile Studio | Contacto </title>
+    <link rel="stylesheet" href="css/styles.css">
 
     <!-- Leaflet (OpenStreetMap) -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 
     <!-- Leaflet Routing Machine (OSRM) -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css">
     <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js" defer></script>
   </head>
   <body>
@@ -21,7 +21,7 @@
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="index.html" aria-label="Ir a inicio">
-          <img src="images/logo.svg" alt="Logo ProgramStile" width="36" height="36" />
+          <img src="images/logo.svg" alt="Logo ProgramStile" width="36" height="36">
           <span>ProgramStile Studio</span>
         </a>
 
@@ -59,11 +59,11 @@
             <div class="grid-2">
               <div class="field">
                 <label for="originLat">Latitud</label>
-                <input id="originLat" type="number" step="0.000001" placeholder="40.4168" />
+                <input id="originLat" type="number" step="0.000001" placeholder="40.4168">
               </div>
               <div class="field">
                 <label for="originLng">Longitud</label>
-                <input id="originLng" type="number" step="0.000001" placeholder="-3.7038" />
+                <input id="originLng" type="number" step="0.000001" placeholder="-3.7038">
               </div>
             </div>
             <button class="button" type="button" data-route-manual>Calcular ruta con coordenadas</button>
@@ -73,7 +73,7 @@
           </div>
 
           <div>
-            <div id="map" class="map" aria-label="Mapa"></div>
+            <div id="map" class="map" role="region" aria-label="Mapa"></div>
           </div>
         </div>
       </div>
@@ -87,11 +87,11 @@
           <div class="small">&copy; <span data-year></span></div>
           <div class="small">Aviso legal</div>
         </div>
-        <div class="social" aria-label="Redes sociales">
+        <nav class="social" aria-label="Redes sociales">
           <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
           <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X">X</a>
           <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
-        </div>
+        </nav>
       </div>
     </footer>
 
