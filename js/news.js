@@ -18,12 +18,34 @@ function createNewsItem(item) {
   return article;
 }
 
+const FALLBACK_NEWS = {
+  items: [
+    { title: 'Nuevo proyecto de e-commerce', date: '2026-01-18', summary: 'Lanzamos una tienda con catálogo dinámico y optimizaciones de rendimiento.' },
+    { title: 'Mejoras en accesibilidad', date: '2025-12-05', summary: 'Actualizamos componentes para cumplir WCAG y mejorar la experiencia.' },
+    { title: 'Plantillas modulares', date: '2025-11-10', summary: 'Nuevos bloques reutilizables para acelerar entregas.' }
+  ]
+};
+
+function renderNews(root, status, payload, note) {
+  root.innerHTML = '';
+  for (const item of payload.items.slice(0, 6)) {
+    root.append(createNewsItem(item));
+  }
+  if (status) status.textContent = note ?? '';
+}
+
 export async function loadNews() {
   const root = document.querySelector('[data-news]');
   if (!root) return;
 
   const status = document.querySelector('[data-news-status]');
   if (status) status.textContent = 'Cargando noticias…';
+
+  const isFileProtocol = window.location.protocol === 'file:';
+  if (isFileProtocol) {
+    renderNews(root, status, FALLBACK_NEWS, 'Mostrando noticias de ejemplo (modo local).');
+    return;
+  }
 
   try {
     // Ajax: carga desde archivo externo JSON.
@@ -33,15 +55,9 @@ export async function loadNews() {
 
     /** @type {{items: Array<{title:string,date:string,summary:string}>}} */
     const payload = await res.json();
-
-    root.innerHTML = '';
-    for (const item of payload.items.slice(0, 6)) {
-      root.append(createNewsItem(item));
-    }
-
-    if (status) status.textContent = '';
+    renderNews(root, status, payload);
   } catch (error) {
     // Fallo de red o bloqueo por ejecución con file:// (usa Live Server).
-    if (status) status.textContent = 'No se pudieron cargar las noticias.';
+    renderNews(root, status, FALLBACK_NEWS, 'Mostrando noticias de ejemplo por problema de carga.');
   }
 }

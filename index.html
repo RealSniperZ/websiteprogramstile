@@ -3,25 +3,137 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ProgramStile Studio</title>
-
-    <!--
-      GitHub Pages solo publica automáticamente si existe un index.html en la raíz.
-      Este proyecto mantiene las páginas dentro de /views por estructura del ejercicio.
-    -->
-    <meta http-equiv="refresh" content="0; url=views/index.html" />
-    <link rel="canonical" href="views/index.html" />
-
-    <style>
-      body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; margin:2rem;}
-      a{color:#1f5cff;}
-    </style>
+    <meta name="description" content="Estudio de desarrollo web. Diseño, implementación y mantenimiento." />
+    <title>ProgramStile Studio | Inicio</title>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <h1>Abriendo la web…</h1>
-    <p>Si no te redirige automáticamente, entra aquí: <a href="views/index.html">views/index.html</a>.</p>
-    <script>
-      window.location.replace('views/index.html');
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Ir a inicio">
+          <img src="images/logo.svg" alt="Logo ProgramStile" width="36" height="36" />
+          <span>ProgramStile Studio</span>
+        </a>
+
+        <nav class="nav" aria-label="Navegación principal">
+          <a href="index.html">Inicio</a>
+          <a href="galeria.html">Galería</a>
+          <a href="presupuesto.html">Presupuesto</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-card">
+            <h1>Webs claras, rápidas y bien cuidadas</h1>
+            <p>
+              Diseño y desarrollo para negocios y proyectos personales: páginas ligeras, navegación limpia
+              y contenido dinámico cuando hace falta.
+            </p>
+            <div class="cta-row">
+              <a class="button primary" href="presupuesto.html">Pedir presupuesto</a>
+              <a class="button" href="#noticias">Últimas noticias</a>
+            </div>
+            <p class="small" data-global-error aria-live="polite"></p>
+          </div>
+
+          <div class="hero-card">
+            <h2 style="margin-top:0">En pocas palabras</h2>
+            <div class="kpi" aria-label="Indicadores">
+              <div>
+                <div class="label">Entrega</div>
+                <div class="value">A medida</div>
+              </div>
+              <div>
+                <div class="label">Contenido</div>
+                <div class="value">Dinámico</div>
+              </div>
+              <div>
+                <div class="label">Experiencia</div>
+                <div class="value">Responsive</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Servicios</h2>
+          <p>Soluciones con foco en claridad, rendimiento y mantenimiento.</p>
+          <div class="cards" role="list">
+            <article class="card" role="listitem">
+              <h3>Diseño y maquetación</h3>
+              <p>Interfaces consistentes, responsive y con buena accesibilidad.</p>
+            </article>
+            <article class="card" role="listitem">
+              <h3>Interacción</h3>
+              <p>Componentes dinámicos para mejorar la experiencia sin sobrecargar la web.</p>
+            </article>
+            <article class="card" role="listitem">
+              <h3>Contenido dinámico</h3>
+              <p>Carga de datos externos (JSON/XML) y render en cliente cuando conviene.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="noticias">
+        <div class="container">
+          <h2>Noticias</h2>
+          <p class="small">Actualizaciones y novedades del estudio.</p>
+          <p class="help" data-news-status aria-live="polite"></p>
+          <noscript>
+            <p class="error">Activa JavaScript para cargar las noticias.</p>
+          </noscript>
+          <div class="news-list" data-news></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Cómo trabajamos</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Orden y consistencia</h3>
+              <p>Estructura clara por páginas y scripts pequeños para mantenerlo fácil de entender.</p>
+            </div>
+            <div class="card">
+              <h3>Detalle en formularios</h3>
+              <p>Validaciones con mensajes claros y cálculo en vivo para evitar sorpresas.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>ProgramStile Studio</strong>
+          <div class="small">Calle Ficticia 123, Madrid</div>
+          <div class="small">&copy; <span data-year></span></div>
+          <div class="small">Aviso legal</div>
+        </div>
+
+        <div class="social" aria-label="Redes sociales">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X">X</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module">
+      import { setupCommon } from './js/common.js';
+      import { loadNews } from './js/news.js';
+      setupCommon();
+      loadNews();
     </script>
   </body>
 </html>
